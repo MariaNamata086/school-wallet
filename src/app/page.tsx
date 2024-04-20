@@ -7,7 +7,7 @@ export default function Home() {
       
      bg-white'
     >
-      School Wallet
+     This is the School Wallet
     </main>
   );
 }
