@@ -40,7 +40,7 @@ function Footer() {
               </div>
           </div>
           <div className='hidden items-center justify-center h-1/2 bg-white md:flex'>
-          <Link href='/authentication/login' className='py-2 px-4 rounded-full'>Get Started</Link>
+          <Link href='/authentication/login' className='py-2 px-4 rounded-full w-[330px] h-[55px]'>Get Started</Link>
           </div>
     </footer>
   )
