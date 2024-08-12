@@ -29,19 +29,18 @@ function Footer() {
       },
     ];
   return (
-      <footer className='flex flex-col h-[420px] md:h-[840px]'>
-          <div className='flex flex-col h-full md:h-1/2 bg-[#53C9EB] py-[60px] gap-8 leading-loose tracking-wider text-[#003148]'>
+      <footer className='flex flex-col items-center h-auto mb-20 bg-white gap-10'>
+          <div className='flex flex-col h-full md:h-1/2  py-[60px] bg-[#53C9EB] gap-8 px-10 leading-loose tracking-wider text-[#003148]'>
               <span className=' text-[30px] md:text-[35px] text-center font-bold'>Join Parents and Guardians using CashDash countrywide </span>
-              <div className='flex flex-col md:flex-row justify-around'>{
+              <div className='flex flex-col md:flex-row justify-around p-5'>{
                   footerSubContent.map(({ title, content, moreInfo }, index) => {
                       return <FooterSubContent key={index} title={title} content={content} moreInfo={moreInfo} />
                   })
               }                  
               </div>
           </div>
-          <div className='hidden items-center justify-center h-1/2 bg-white md:flex'>
-          <Link href='/authentication/login' className='py-2 px-4 rounded-full w-[330px] h-[55px]'>Get Started</Link>
-          </div>
+           <Link href='/authentication/login' className='font-bold h-[55px] hidden items-center justify-center py-2 px-4 rounded-full bg-primary text-darkblue md:flex w-[330px] md:text-[18px]'>Get Started</Link>
+          
     </footer>
   )
 }
