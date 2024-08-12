@@ -11,7 +11,7 @@ import Footer from './components/shared/Footer';
 
 export default function Home() {
   return (
-    <main className='flex flex-col items-center justify-center gap-10 tracking-wider'>
+    <main className='flex flex-col items-center justify-center gap-10 tracking-wider bg-white'>
       <div className='flex flex-col w-full'>
         <HomeNav />
         <HomeHeader />
