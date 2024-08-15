@@ -8,6 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   required?: boolean;
   errorText?: string | undefined;
+  icon?: any
 }
 
 function FormInput(props: InputProps) {
@@ -23,6 +24,7 @@ function FormInput(props: InputProps) {
     helperText,
     required,
     errorText,
+    icon
   } = props;
 
   const [number, setNumber] = useState('');
@@ -63,9 +65,9 @@ function FormInput(props: InputProps) {
           {label} {required && <span className='text-red-500'>*</span>}
         </label>
       )}
-      <div className='relative'>
-        {' '}
+      <div className='flex items-center bg-white relative'>
         {/* Wrap the input and the icon in a div */}
+        {icon}
         <input
           style={{
             borderWidth: '0.5px',

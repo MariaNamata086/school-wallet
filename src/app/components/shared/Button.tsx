@@ -32,7 +32,7 @@ export default function Button({
       disabled={loading || disabled}
       type={type}
       {...props}
-      className={`h-[40px] border-none w-full bg-primary color-white justify-center items-center bg-teal-700 hover:bg-teal-600 hover:scale-105 py-[8px] px-[16px] rounded-md ${textColor} ${textSize}`}
+      className={`h-[40px] border-none w-full bg-primary color-white justify-center items-center  hover:scale-105 py-[8px] px-[16px] rounded-md ${textColor} ${textSize}`}
       style={{
         cursor: disabled ? 'not-allowed' : 'pointer',
         fontSize: size === 'small' ? 10 : 12,
