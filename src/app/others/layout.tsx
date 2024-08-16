@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 import SharedNavBar from '../components/shared/SharedNavBar';
 
 function OtherPagesLayout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <div>
-        <SharedNavBar/>
-        <div>{children}</div>
+      <SharedNavBar />
+      <div>{children}</div>
     </div>
-  )
+  );
 }
 
-export default OtherPagesLayout
+export default OtherPagesLayout;

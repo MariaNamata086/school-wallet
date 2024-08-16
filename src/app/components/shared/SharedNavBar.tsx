@@ -4,7 +4,7 @@ import light_logo from '@assets/light_logo_short.png';
 import { FaRegBell } from 'react-icons/fa';
 import Link from 'next/link';
 import settings_image from '@assets/settings.png';
-import user_icon from '@assets/user_icon_blue.png'
+import user_icon from '@assets/user_icon_blue.png';
 
 function SharedNavBar() {
   return (
@@ -16,7 +16,11 @@ function SharedNavBar() {
         <Link href='/others' className='text-[18px]' style={{}}>
           Home
         </Link>
-        <Link href='/others/dashboard/transactions'className='text-[18px]' style={{}}>
+        <Link
+          href='/others/dashboard/transactions'
+          className='text-[18px]'
+          style={{}}
+        >
           Transactions
         </Link>
         <Link href='/others/dashboard' className='text-[18px]' style={{}}>
@@ -28,10 +32,18 @@ function SharedNavBar() {
           <FaRegBell size={35} />
         </Link>
         <Link href='/notifications' className='w-[30px] h-[35px] '>
-          <Image src={settings_image} alt='image of settings icon' style={{objectFit:'contain'}}/>
+          <Image
+            src={settings_image}
+            alt='image of settings icon'
+            style={{ objectFit: 'contain' }}
+          />
         </Link>
         <Link href='/notifications' className='w-[45px] h-[45px]'>
-         <Image src={user_icon} alt='image of a user icon' style={{objectFit:'contain'}}/>
+          <Image
+            src={user_icon}
+            alt='image of a user icon'
+            style={{ objectFit: 'contain' }}
+          />
         </Link>
       </div>
     </nav>

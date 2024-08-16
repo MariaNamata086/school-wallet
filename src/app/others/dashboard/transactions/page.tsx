@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function TransactionsHistory() {
-  return (
-    <div>TransactionsHistory</div>
-  )
+  return <div>TransactionsHistory</div>;
 }
 
-export default TransactionsHistory
+export default TransactionsHistory;

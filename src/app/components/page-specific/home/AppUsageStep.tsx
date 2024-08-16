@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import dark_sw_logo from '@assets/dark_logo_long.png'
+import dark_sw_logo from '@assets/dark_logo_long.png';
 
 interface AppUsageStepProps {
   stepNumber: string;
@@ -31,8 +31,7 @@ function AppUsageStep({
         </span>
         <p className='flex w-[300px] p-3 gap-2 text-[11px] md:text-[14.5px] leading-[18.15px] text-[#1E1E1E] '>
           <span className='text-darkblue font-semibold'>{mainAction}</span>
-         {additionalInformation}
-         
+          {additionalInformation}
         </p>
       </div>
     </div>

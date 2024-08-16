@@ -17,7 +17,7 @@ function Homenav() {
 
       <div className='flex mt-4 md:mt-0 items-center gap-8 justify-between'>
         <Link
-          href='/authentication/signup'         
+          href='/authentication/signup'
           className='text-[15px] text-center tracking-wider h-auto py-1 px-4  text-[#003148] border-[1px] border-[#53C9EB] rounded-full w-[100px] md:w-[120px] hover:scale-105'
         >
           Sign Up

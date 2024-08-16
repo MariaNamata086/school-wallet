@@ -8,7 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   required?: boolean;
   errorText?: string | undefined;
-  icon?: any
+  icon?: any;
 }
 
 function FormInput(props: InputProps) {
@@ -24,7 +24,7 @@ function FormInput(props: InputProps) {
     helperText,
     required,
     errorText,
-    icon
+    icon,
   } = props;
 
   const [number, setNumber] = useState('');

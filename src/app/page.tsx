@@ -8,7 +8,6 @@ import HomeHeader from './components/page-specific/home/HomeHeader';
 import AppUsageStep from './components/page-specific/home/AppUsageStep';
 import Footer from './components/shared/Footer';
 
-
 export default function Home() {
   return (
     <main className='flex flex-col items-center justify-center gap-10 tracking-wider bg-white'>

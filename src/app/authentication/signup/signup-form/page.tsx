@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function SignUpForm() {
-  return (
-    <div>SignUp Form</div>
-  )
+  return <div>SignUp Form</div>;
 }
 
-export default SignUpForm
+export default SignUpForm;

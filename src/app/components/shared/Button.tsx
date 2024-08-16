@@ -12,8 +12,8 @@ export type ButtonProps = {
   className?: string;
   intent?: 'primary' | 'secondary' | 'outline' | 'text';
   size?: 'small' | 'medium';
-    textColor?: string;
-    textSize?: string;
+  textColor?: string;
+  textSize?: string;
 };
 
 export default function Button({

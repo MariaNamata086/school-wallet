@@ -1,4 +1,45 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"],
-  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }]
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb-base",
+    "airbnb-typescript",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+    // "extraFileExtensions": [".css"]
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": ["warn", { "endOfLine": "auto" }],
+    "react/jsx-fragments": "off",
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    "react/button-has-type": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "no-param-reassign": "off",
+    "import/no-cycle": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "no-return-assign": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/alt-text": "off",
+    "react/jsx-boolean-value": "off",
+    "@next/next/inline-script-id": "off",
+    "react/no-danger": "off",
+    "jsx-a11y/iframe-has-title": "off",
+    "react/self-closing-comp": "off",
+    "spaced-comment": "off",
+    "object-shorthand": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }]
+  }
 }
+

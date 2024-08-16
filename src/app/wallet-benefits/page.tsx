@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function WalletBenefits() {
-  return (
-    <div>WalletBenefits</div>
-  )
+  return <div>WalletBenefits</div>;
 }
 
-export default WalletBenefits
+export default WalletBenefits;
