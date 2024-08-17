@@ -6,30 +6,47 @@ import light_logo from '@assets/light_logo_short.png';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useRouter } from 'next/navigation';
 import FormInput from '@/app/components/shared/FormInput';
 
 function Login() {
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const [submitting, setSubmitting] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const loginValidationSchema = yup.object({
+    emailAddress: yup.string().required('Please enter your email'),
+    password: yup.string().required('Please enter your password'),
+  });
+  // consider adding a minimum and maximum length check for the school wallet number
+  const router = useRouter();
 
-  const handleLogin = () => {
-    //use formik to handle form submission
-    setLoading(true);
-    setLoading(false);
-  };
-  //create a form validation schema using yup
-  //use the useFormik hook to handle form
+  const formik = useFormik({
+    initialValues: { emailAddress: '', password: '' },
+    validationSchema: loginValidationSchema,
+    onSubmit: async () => {
+      try {
+        setSubmitting(true);
+        // make api request to backend
+      } catch (error: any) {
+        setSubmitting(false);
+        // log error object and setError message to returned error
+      } finally {
+        setSubmitting(false);
+        formik.resetForm();
+        // setTimeout(() => setErrorMessage(null), 4000);
+        router.push('/others');
+      }
+    },
+  });
 
   const loginDetails = {
-    email: 'enter email',
-    walletNumber: 'school wallet number',
+    emailAddress: 'enter email',
+    password: 'school wallet number',
   };
 
   const getIcon = (inputField: string) => {
-    let icon;
     //get actual icons
-    inputField === 'email' ? 'mailicon' : 'password icon';
-    icon = inputField;
+    const icon = inputField === 'email' ? 'mailicon' : 'password icon';
     return icon;
   };
   return (
@@ -46,17 +63,24 @@ function Login() {
                 <FormInput
                   type='text'
                   value={loginDetails[item as keyof typeof loginDetails]}
-                  // {/* formik to handle onChange */}
+                  onChange={formik.handleChange}
                   placeholder={loginDetails[item as keyof typeof loginDetails]}
                   required
-                  // {/*handle error using formik  */}
+                  error={
+                    formik.touched[item as keyof typeof loginDetails] &&
+                    Boolean(formik.errors[item as keyof typeof loginDetails])
+                  }
                   icon={getIcon(item)}
                 />
               </div>
             );
           })}
         </div>
-        <Button loading={loading} textColor='text-primary' disabled={loading}>
+        <Button
+          loading={submitting}
+          textColor='text-primary'
+          disabled={submitting}
+        >
           Login
         </Button>
         <div className='flex items-center justify-between'>
