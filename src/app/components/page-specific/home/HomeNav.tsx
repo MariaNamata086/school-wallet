@@ -23,7 +23,7 @@ function Homenav() {
           Sign Up
         </Link>
         <Link
-          href='/authentication/login'
+          href='authentication/login'
           className='text-[15px] text-center tracking-wider md:w-[120px]  h-auto py-1 px-4  bg-[#003148] text-white border-[1px]  rounded-full hover:scale-105'
         >
           Login

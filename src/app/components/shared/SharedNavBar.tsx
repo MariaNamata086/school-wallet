@@ -4,8 +4,8 @@ import light_logo from '@assets/light_logo_short.png';
 import { FaRegBell } from 'react-icons/fa';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import settings_image from '@assets/settings.png';
-import user_icon from '@assets/user_icon_blue.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUser, faGear } from '@fortawesome/free-solid-svg-icons';
 
 function SharedNavBar() {
   const [isTabActive, setIsTabActive] = useState<Boolean>(false);
@@ -56,19 +56,20 @@ function SharedNavBar() {
         >
           <FaRegBell size={35} />
         </Link>
-        <Link href='/notifications' className='w-[30px] h-[35px] '>
-          <Image
-            src={settings_image}
-            alt='image of settings icon'
-            style={{ objectFit: 'contain' }}
-          />
+        <Link
+          href='/notifications'
+          className='w-[30px] h-[35px]'
+          style={{ color: pathName === '/notifications' ? '#53C9EB' : 'white' }}
+        >
+          <FontAwesomeIcon icon={faGear} />
         </Link>
-        <Link href='/notifications' className='w-[45px] h-[45px]'>
-          <Image
-            src={user_icon}
-            alt='image of a user icon'
-            style={{ objectFit: 'contain' }}
-          />
+        <Link
+          href='/notifications'
+          className='w-[45px] h-[45px]'
+          onClick={() => setActiveTabColor('/others/dashboard')}
+          style={{ color: isTabActive ? '#53C9EB' : 'white' }}
+        >
+          <FontAwesomeIcon icon={faCircleUser} />
         </Link>
       </div>
     </nav>

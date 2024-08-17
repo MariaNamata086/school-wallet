@@ -65,9 +65,9 @@ function FormInput(props: InputProps) {
           {label} {required && <span className='text-red-500'>*</span>}
         </label>
       )}
-      <div className='flex items-center bg-white relative'>
+      <div className='flex items-center bg-white relative gap-2 px-[8px] py-[3px] text-slate-700'>
         {/* Wrap the input and the icon in a div */}
-        {icon}
+        <FontAwesomeIcon icon={icon} />
         <input
           style={{
             borderWidth: '0.5px',

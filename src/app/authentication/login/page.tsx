@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useRouter } from 'next/navigation';
 import FormInput from '@/app/components/shared/FormInput';
+import { faLock, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 function Login() {
   const [submitting, setSubmitting] = useState(false);
@@ -40,13 +41,12 @@ function Login() {
   });
 
   const loginDetails = {
-    emailAddress: 'enter email',
-    password: 'school wallet number',
+    emailAddress: 'Enter email address',
+    password: 'School wallet number',
   };
 
   const getIcon = (inputField: string) => {
-    //get actual icons
-    const icon = inputField === 'email' ? 'mailicon' : 'password icon';
+    const icon = inputField === 'emailAddress' ? faCircleUser : faLock;
     return icon;
   };
   return (
