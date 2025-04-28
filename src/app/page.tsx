@@ -46,7 +46,7 @@ export default function Home() {
           Learn More
         </Link>
       </div>
-      <div className='flex flex-col items-center gap-6 p-14 h-[600px] bg-[#D9D9D9] tracking-wider'>
+      <div className='flex flex-col items-center gap-6 md:gap-10 p-14 bg-[#D9D9D9] tracking-wider h-auto'>
         <span className='text-[#003148] text-[20px] lg:text-[27px] leading-[36.31px]'>
           Cash Dash links Parents/ Guardians and Students
         </span>
@@ -54,7 +54,7 @@ export default function Home() {
           <span className='underline text-[12px] md:text-[14px] leading-[18.15px] text-[#003148]'>
             Dear Parent:
           </span>
-          <div className='flex items-center justify-between w-full'>
+          <div className='flex items-center gap-1 justify-between w-full'>
             <AppUsageStep
               stepNumber='01'
               mainAction='Sign up'
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
         <Link
           href='/authentication/signup'
-          className='text-[15px] text-center tracking-wider w-[170px]  px-4 py-2 text-[#003148] border-[1px] border-[#53C9EB] rounded-full hover:scale-105'
+          className='text-[15px] md:text-[22px] font-bold text-center tracking-wider w-[170px] md:w-[300px]  px-4 py-2 text-[#003148] border-[1px] border-[#53C9EB] rounded-full hover:scale-105 mdmb-8'
         >
           Sign Up
         </Link>

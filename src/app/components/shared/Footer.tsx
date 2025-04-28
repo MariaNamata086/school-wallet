@@ -28,12 +28,12 @@ function Footer() {
     },
   ];
   return (
-    <footer className='flex flex-col items-center h-auto mb-20 bg-white gap-10'>
-      <div className='flex flex-col h-full md:h-1/2  py-[60px] bg-[#53C9EB] gap-8 px-10 leading-loose tracking-wider text-[#003148]'>
+    <footer className='flex flex-col items-center h-auto mb-20 gap-10'>
+      <div className='flex flex-col h-full w-full bg-[#53C9EB] gap-8 p-20 leading-loose tracking-wider text-[#003148]'>
         <span className=' text-[30px] md:text-[35px] text-center font-bold'>
           Join Parents and Guardians using CashDash countrywide{' '}
         </span>
-        <div className='flex flex-col md:flex-row justify-around p-5'>
+        <div className='flex flex-col justify-center  md:flex-row gap-4 p-5 md:p-8'>
           {footerSubContent.map(({ title, content, moreInfo }, index) => {
             return (
               <FooterSubContent
@@ -64,7 +64,7 @@ const FooterSubContent = ({
   moreInfo,
 }: FooterSubContentProps) => {
   return (
-    <div className='flex flex-col gap-3 items-start'>
+    <div className='flex flex-col gap-3 w-full md:w-[300px] items-start p-3'>
       <span className='font-semibold text-[20px]'>{title}</span>
       <span className='font-normal text-[12px] md:text-[14px]'>{content}</span>
       {moreInfo && <span className='mt-3'>{moreInfo}</span>}
