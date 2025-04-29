@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,34 +27,7 @@ function FormInput(props: InputProps) {
     icon,
   } = props;
 
-  const [number, setNumber] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
-
-  const formatNumber = (event: ChangeEvent<HTMLInputElement>) => {
-    if (type === 'number') {
-      // Remove existing commas and non-digit characters from the input value, except decimal point
-      let formattedValue = event.target.value.replace(/[^0-9.]/g, '');
-
-      // Split the value into whole number and decimal parts
-      const parts = formattedValue.split('.');
-
-      // Add commas after every 3 digits in the whole number part
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-      // Join the parts back together
-      formattedValue = parts.join('.');
-
-      setNumber(formattedValue);
-
-      // Update the input value with the formatted number
-      event.target.value = formattedValue.replace(/,/g, '');
-    }
-
-    // Call the onChange event if provided
-    if (onChange) {
-      onChange(event);
-    }
-  };
 
   const borderColor = error ? '#e53e3e' : '#e9e8e6';
 
@@ -66,7 +39,6 @@ function FormInput(props: InputProps) {
         </label>
       )}
       <div className='flex items-center bg-white relative gap-2 px-[8px] py-[3px] text-slate-700'>
-        {/* Wrap the input and the icon in a div */}
         <FontAwesomeIcon icon={icon} />
         <input
           style={{
@@ -80,21 +52,17 @@ function FormInput(props: InputProps) {
           className={`flex transition-all duration-75 focus:border-[0.5px] focus:outline outline-slate-500 focus:shadow-sm focus:${borderColor} px-[10px] h-[40px]`}
           type={
             // eslint-disable-next-line no-nested-ternary
-            type === 'password'
-              ? passwordVisible
-                ? 'text'
-                : 'password'
-              : 'text'
+            type === 'password' ? (passwordVisible ? 'text' : 'password') : type
           }
-          value={type === 'number' ? number : value}
-          onChange={formatNumber}
           id={id}
           name={name}
+          value={value}
+          onChange={onChange}
           placeholder={placeholder}
         />
         {type === 'password' && (
           <div
-            className='absolute inset-y-0 right-0 pr-2 flex items-center cursor-pointer '
+            className='absolute inset-y-0 right-0 pr-2 flex items-center cursor-pointer'
             onClick={() => setPasswordVisible(!passwordVisible)}
           >
             <FontAwesomeIcon icon={passwordVisible ? faEyeSlash : faEye} />

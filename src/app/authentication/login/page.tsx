@@ -2,7 +2,7 @@
 
 import Button from '@/app/components/shared/Button';
 import Image from 'next/image';
-import light_logo from '@assets/light_logo_short.png';
+import light_logo from '@assets/logo long.svg';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
@@ -14,6 +14,8 @@ import { faLock, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 function Login() {
   const [submitting, setSubmitting] = useState(false);
   // const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  // const [successMessage, setSuccessMessage] = useState<null | string>(null);
+
   const loginValidationSchema = yup.object({
     emailAddress: yup.string().required('Please enter your email'),
     password: yup.string().required('Please enter your password'),
@@ -32,9 +34,11 @@ function Login() {
         setSubmitting(false);
         // log error object and setError message to returned error
       } finally {
-        setSubmitting(false);
+        formik.resetForm();
+        setTimeout(() => setSubmitting(false), 2000);
         formik.resetForm();
         // setTimeout(() => setErrorMessage(null), 4000);
+        // setTimeout(() => setSuccessMessage(null), 4000);
         router.push('/others');
       }
     },
@@ -51,7 +55,7 @@ function Login() {
   };
   return (
     <main className='bg-primary flex h-auto items-center  justify-center p-20 tracking-wider leading-loose'>
-      <div className='h-auto md:h-[600px] w-[400px] md:w-[720px] rounded-md bg-darkblue flex flex-col items-center justify-center gap-8 p-10'>
+      <div className='h-auto w-[400px] md:w-[720px] rounded-md bg-darkblue flex flex-col items-center justify-center gap-8 md:gap-10 p-10'>
         <div className='flex items-center justify-center md:w-[114px] h-[140px] relative'>
           <Image
             src={light_logo}
@@ -60,48 +64,57 @@ function Login() {
             fill
           />
         </div>
-        <span className=''>Welcome to Cash Dash</span>
-        <div>
-          {Object.keys(loginDetails).map((item, index) => {
-            return (
-              <div className='' key={index}>
-                <FormInput
-                  type='text'
-                  value={loginDetails[item as keyof typeof loginDetails]}
-                  onChange={formik.handleChange}
-                  placeholder={loginDetails[item as keyof typeof loginDetails]}
-                  required
-                  error={
-                    formik.touched[item as keyof typeof loginDetails] &&
-                    Boolean(formik.errors[item as keyof typeof loginDetails])
-                  }
-                  icon={getIcon(item)}
-                />
-              </div>
-            );
-          })}
-        </div>
+        <span className='text-[25px] font-semibold md:text-[45px]'>
+          Welcome to Cash Dash
+        </span>
+        <div className='flex flex-col p-2 md:p-3 gap-3  w-[70%]'>
+          <form onSubmit={formik.handleSubmit}>
+            {Object.keys(loginDetails).map((item, index) => {
+              return (
+                <div className='' key={index}>
+                  <FormInput
+                    type='text'
+                    name={item}
+                    value={formik.values[item as keyof typeof formik.values]}
+                    onChange={formik.handleChange}
+                    placeholder={
+                      loginDetails[item as keyof typeof loginDetails]
+                    }
+                    required
+                    error={
+                      formik.touched[item as keyof typeof formik.values] &&
+                      Boolean(formik.errors[item as keyof typeof formik.values])
+                    }
+                    icon={getIcon(item)}
+                  />
+                </div>
+              );
+            })}
         <Button
           loading={submitting}
-          textColor='text-primary'
+          className='text-darkblue font-bold text-[25px]'
+          textColor='#003148'
           disabled={submitting}
+          type='submit'
         >
           Login
         </Button>
-        <div className='flex items-center justify-between'>
-          <div className='flex font-semibold items-center gap-2 text-[20px]'>
-            <span className=''>Forgot PassWord?</span>
+          </form>
+        </div>
+        <div className='flex flex-col gap-3 md:flex-row items-center p-3 tracking-wider md:gap-10'>
+          <div className='flex items-center gap-2 '>
+            <span className='text-[20px] font-semibold'>Forgot PassWord?</span>
             <Link
               href='/authentication/wallet-number-reset'
               className='text-primary'
             >
-              Reset
+              (Reset)
             </Link>
           </div>
-          <div className='flex font-semibold items-center gap-2 text-[20px]'>
-            <span className=''>New to Cash Dash?</span>
+          <div className='flex items-center gap-2 '>
+            <span className='text-[20px] font-semibold'>New to Cash Dash?</span>
             <Link href='/authentication/signup' className='text-primary'>
-              Sign Up
+              (Sign Up)
             </Link>
           </div>
         </div>
