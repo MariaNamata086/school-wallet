@@ -17,11 +17,11 @@ function Login() {
   // const [successMessage, setSuccessMessage] = useState<null | string>(null);
 
   const loginValidationSchema = yup.object({
-    emailAddress: yup.string().required('Please enter your email'),
-    password: yup.string().required('Please enter your password'),
+    emailAddress: yup.string().email('Invalid Email Address').required('Email is required'),
+    password: yup.string().required('Password is required'),
   });
-  // consider adding a minimum and maximum length check for the school wallet number
-  const router = useRouter();
+ 
+ const router = useRouter();
 
   const formik = useFormik({
     initialValues: { emailAddress: '', password: '' },
@@ -46,7 +46,7 @@ function Login() {
 
   const loginDetails = {
     emailAddress: 'Enter email address',
-    password: 'School wallet number',
+    password: 'Enter your Password',
   };
 
   const getIcon = (inputField: string) => {
@@ -90,15 +90,15 @@ function Login() {
                 </div>
               );
             })}
-        <Button
-          loading={submitting}
-          className='text-darkblue font-bold text-[25px]'
-          textColor='#003148'
-          disabled={submitting}
-          type='submit'
-        >
-          Login
-        </Button>
+            <Button
+              loading={submitting}
+              className='text-darkblue font-bold text-[25px]'
+              textColor='#003148'
+              disabled={submitting || !formik.isValid}
+              type='submit'
+            >
+              Login
+            </Button>
           </form>
         </div>
         <div className='flex flex-col gap-3 md:flex-row items-center p-3 tracking-wider md:gap-10'>
