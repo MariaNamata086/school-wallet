@@ -12,16 +12,19 @@ import FormInput from '@/app/components/shared/FormInput';
 import { faLock, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 function Login() {
-  const [submitting, setSubmitting] = useState(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   // const [errorMessage, setErrorMessage] = useState<null | string>(null);
   // const [successMessage, setSuccessMessage] = useState<null | string>(null);
 
   const loginValidationSchema = yup.object({
-    emailAddress: yup.string().email('Invalid Email Address').required('Email is required'),
+    emailAddress: yup
+      .string()
+      .email('Invalid Email Address')
+      .required('Email is required'),
     password: yup.string().required('Password is required'),
   });
- 
- const router = useRouter();
+
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: { emailAddress: '', password: '' },
