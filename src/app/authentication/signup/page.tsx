@@ -65,7 +65,7 @@ function Signup() {
         setTimeout(() => setSubmitting(false), 2000);
         setTimeout(() => setErrorMessage(null), 3000);
         setTimeout(() => setSuccessMessage(null), 3000);
-        router.push('/authentication/login');
+        router.push('/authentication/verify-email');
       }
     },
   });
