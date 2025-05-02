@@ -58,7 +58,7 @@ function Login() {
   };
   return (
     <main className='bg-primary flex h-auto items-center  justify-center p-20 tracking-wider leading-loose'>
-      <div className='h-auto w-[400px] md:w-[720px] rounded-md bg-darkblue flex flex-col items-center justify-center gap-8 md:gap-10 p-10'>
+      <div className='h-auto w-[400px] md:w-[720px] rounded-md bg-darkblue flex flex-col items-center justify-center gap-6 p-5'>
         <div className='flex items-center justify-center md:w-[114px] h-[140px] relative'>
           <Image
             src={light_logo}
@@ -70,7 +70,7 @@ function Login() {
         <span className='text-[25px] font-semibold md:text-[45px]'>
           Welcome to Cash Dash
         </span>
-        <div className='flex flex-col p-2 md:p-3 gap-3  w-[70%]'>
+        <div className='flex flex-col p-2 md:p-3 gap-3 md:gap-4 w-[70%]'>
           <form onSubmit={formik.handleSubmit}>
             {Object.keys(loginDetails).map((item, index) => {
               return (
@@ -95,8 +95,9 @@ function Login() {
             })}
             <Button
               loading={submitting}
-              className='text-darkblue font-bold text-[25px]'
+              className='text-darkblue font-bold mt-2 text-[25px]'
               textColor='#003148'
+              textSize='text-md md:text-lg'
               disabled={submitting || !formik.isValid}
               type='submit'
             >
@@ -108,7 +109,7 @@ function Login() {
           <div className='flex items-center gap-2 '>
             <span className='text-[20px] font-semibold'>Forgot PassWord?</span>
             <Link
-              href='/authentication/wallet-number-reset'
+              href='/authentication/forgot-password'
               className='text-primary'
             >
               (Reset)
