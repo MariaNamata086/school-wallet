@@ -2,7 +2,7 @@
 
 import Button from '@/app/components/shared/Button';
 import Image from 'next/image';
-import light_logo from '@assets/logo long.svg';
+import light_logo from '@assets/logo_long.svg';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import FormInput from '@/app/components/shared/FormInput';

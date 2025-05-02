@@ -2,7 +2,7 @@
 
 import Button from '@/app/components/shared/Button';
 import Image from 'next/image';
-import light_logo from '@assets/logo long.svg';
+import light_logo from '@assets/logo_long.svg';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
@@ -62,10 +62,12 @@ function Signup() {
         setErrorMessage('Something went wrong. Please try again later.'); // or any other error message fron backend
       } finally {
         formik.resetForm();
-        setTimeout(() => setSubmitting(false), 2000);
-        setTimeout(() => setErrorMessage(null), 3000);
-        setTimeout(() => setSuccessMessage(null), 3000);
-        router.push('/authentication/verify-email');
+        setTimeout(() => {
+          setSubmitting(false);
+          setErrorMessage(null);
+          setSuccessMessage(null);
+          router.push('/authentication/signup/verify-email');
+        }, 3000);
       }
     },
   });

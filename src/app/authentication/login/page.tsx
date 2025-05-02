@@ -2,7 +2,7 @@
 
 import Button from '@/app/components/shared/Button';
 import Image from 'next/image';
-import light_logo from '@assets/logo long.svg';
+import light_logo from '@assets/logo_long.svg';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
@@ -39,7 +39,6 @@ function Login() {
       } finally {
         formik.resetForm();
         setTimeout(() => setSubmitting(false), 2000);
-        formik.resetForm();
         // setTimeout(() => setErrorMessage(null), 4000);
         // setTimeout(() => setSuccessMessage(null), 4000);
         router.push('/others');
@@ -109,7 +108,7 @@ function Login() {
           <div className='flex items-center gap-2 '>
             <span className='text-[20px] font-semibold'>Forgot PassWord?</span>
             <Link
-              href='/authentication/forgot-password'
+              href='/authentication/password-reset'
               className='text-primary'
             >
               (Reset)

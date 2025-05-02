@@ -4,7 +4,7 @@ import Button from '@/app/components/shared/Button';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import light_logo from '@assets/logo long.svg';
+import light_logo from '@assets/logo_long.svg';
 import FormInput from '@/app/components/shared/FormInput';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/navigation';
@@ -13,9 +13,7 @@ function ForgotPassword() {
   const [userEmail, setUserEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
-  const [successMessage, setSuccessMessage] = useState<null | string>(
-    'Success',
-  );
+  const [successMessage, setSuccessMessage] = useState<null | string>(null);
   const router = useRouter();
 
   const handleSubmit = (email: string) => {
